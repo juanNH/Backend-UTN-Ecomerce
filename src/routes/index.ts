@@ -39,4 +39,4 @@ router.get("/ping", (_req, res) => {
   res.send({ msg: "pong" });
 });
 
-module.exports = router;
+export default router;

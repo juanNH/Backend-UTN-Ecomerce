@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "start": "node build/index.js",
+    "sync": "node src/db/syncDb.ts",
     "lint": "ts-standar",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +19,11 @@
     "typescript": "4.7.3"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1",
+    "sqlite3": "^5.0.8",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.4.0",
     "ts-node-dev": "^2.0.0"

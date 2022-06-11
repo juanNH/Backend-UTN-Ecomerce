@@ -1,11 +1,13 @@
 import express from "express";
-const { PORT } = require("./config/config");
-const routes = require("./routes");
+import { PORT } from "./config/config";
+import routes from "./routes";
 const app = express();
-const path = require("path");
+import path from "path";
+import { sequalizeConection } from './db/conection';
+sequalizeConection();
 // swagger
-const swaggerUI = require("swagger-ui-express");
-const swaggerJsDoc = require("swagger-jsdoc");
+import swaggerUI from "swagger-ui-express";
+import swaggerJsDoc from "swagger-jsdoc";
 const swaggerSpec = {
   definition: {
     openapi: "3.0.0",
