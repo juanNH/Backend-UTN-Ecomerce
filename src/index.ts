@@ -4,6 +4,7 @@ import routes from "./routes";
 const app = express();
 import path from "path";
 import { sequalizeConection } from './db/conection';
+
 sequalizeConection();
 // swagger
 import swaggerUI from "swagger-ui-express";
