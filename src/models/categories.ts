@@ -8,13 +8,16 @@ export const Categories = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     code: {
       type: DataTypes.INTEGER,
       unique: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   { timestamps: true }

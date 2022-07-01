@@ -8,22 +8,28 @@ export const Users = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     code: {
       type: DataTypes.INTEGER,
       unique: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     surname: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     userName: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   { timestamps: true }

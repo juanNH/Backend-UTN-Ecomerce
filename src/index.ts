@@ -4,6 +4,8 @@ import routes from "./routes";
 const app = express();
 import path from "path";
 import { sequalizeConection } from './db/conection';
+//routers
+import productsRoutes from "./features/products/router";
 
 sequalizeConection();
 // swagger
@@ -27,6 +29,8 @@ const swaggerSpec = {
 // middlewares
 app.use(express.json());
 app.use("/", routes);
+app.use("/products", productsRoutes);
+
 app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 
 app.listen(PORT, () => {

@@ -28,7 +28,8 @@
     "sqlite3": "^5.0.8",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.4.0",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "uuid": "^8.3.2"
   },
   "eslintConfig": {
     "parserOptions": {

@@ -1,14 +1,18 @@
 'use strict';
+const dateTime = require('./../helpers/dateTime');
+const randomCode = require('./../helpers/randomCode');
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     const users = [
       {
-        code: 321,
+        code: randomCode(),
         name: 'Juan',
         surname: 'Herrera',
         userName: 'jherrera',
         password: '123456',
+        createdAt: dateTime(),
+        updatedAt: dateTime(),
       },
     ];
     await queryInterface.bulkInsert('Users', users, {});

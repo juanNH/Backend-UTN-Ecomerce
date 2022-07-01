@@ -8,10 +8,12 @@ export const Products = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     barCode: {
       type: DataTypes.INTEGER,
       unique: true,
+      allowNull: false,
     },
   },
   { timestamps: true }

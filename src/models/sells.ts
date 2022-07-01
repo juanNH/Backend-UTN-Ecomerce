@@ -8,13 +8,16 @@ export const Sells = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     code: {
       type: DataTypes.INTEGER,
       unique: true,
+      allowNull: false,
     },
     total: {
       type: DataTypes.FLOAT,
+      allowNull: false,
     },
   },
   { timestamps: true }

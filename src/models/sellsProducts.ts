@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../db/conection";
 
-export const Carts = sequelize.define(
-  "Carts",
+export const SellsProducts = sequelize.define(
+  "SellsProducts",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -10,11 +10,6 @@ export const Carts = sequelize.define(
       autoIncrement: true,
       allowNull: false,
     },
-    code: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      allowNull: false,
-    },
   },
-  { timestamps: true }
+  { timestamps: false }
 );
