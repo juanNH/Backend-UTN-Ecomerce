@@ -10,7 +10,7 @@
     "lint": "ts-standar",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "npx sequelize-cli db:seed:all",
+    "seed": "npx sequelize-cli db:seed:all --debug",
     "seed-undo": "npx sequelize-cli db:seed:undo"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.1",
     "sqlite3": "^5.0.8",

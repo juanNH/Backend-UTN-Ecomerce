@@ -3,9 +3,9 @@ import { PORT } from "./config/config";
 import routes from "./routes";
 const app = express();
 import path from "path";
-import { sequalizeConection } from './db/conection';
+import { sequalizeConection } from "./db/conection";
 //routers
-import productsRoutes from "./features/products/router";
+import { productsRouter, cartRouter } from "./features";
 
 sequalizeConection();
 // swagger
@@ -29,9 +29,14 @@ const swaggerSpec = {
 // middlewares
 app.use(express.json());
 app.use("/", routes);
-app.use("/products", productsRoutes);
+app.use("/products", productsRouter);
+app.use("/cart", cartRouter);
 
-app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
+app.use(
+  "/api-doc",
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerJsDoc(swaggerSpec))
+);
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);

@@ -11,7 +11,7 @@ export const Products = sequelize.define(
       allowNull: false,
     },
     barCode: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       unique: true,
       allowNull: false,
     },

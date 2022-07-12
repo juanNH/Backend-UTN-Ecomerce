@@ -1,6 +1,8 @@
 const { v4: uuidv4 } = require('uuid');
 
 const randomCode = () =>{
-    return uuidv4();
+    const code = uuidv4();
+    console.log(code)
+    return code;
 }
 module.exports = randomCode;

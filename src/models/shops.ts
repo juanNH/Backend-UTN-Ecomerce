@@ -11,7 +11,7 @@ export const Shops = sequelize.define(
       allowNull: false,
     },
     code: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       unique: true,
       allowNull: false,
     },

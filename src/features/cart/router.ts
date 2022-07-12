@@ -1,6 +1,6 @@
 import express from "express";
-import { getAllProducts, getProductByCategory } from "./controllers";
-export const productsRouter = express.Router();
+import { getCart } from "./controllers";
+export const cartRouter = express.Router();
 
 /**
  * @swagger
@@ -35,7 +35,5 @@ export const productsRouter = express.Router();
  *      200:
  *        description: pinged correctly!!
  */
-productsRouter.get("/allProducts", getAllProducts);
-
-productsRouter.get("/byCategory", getProductByCategory);
+ cartRouter.get("/cart", getCart);
 

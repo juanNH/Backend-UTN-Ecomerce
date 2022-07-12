@@ -1,7 +1,6 @@
 'use strict';
 const dateTime = require('./../helpers/dateTime');
 const randomCode = require('./../helpers/randomCode');
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     const products = [

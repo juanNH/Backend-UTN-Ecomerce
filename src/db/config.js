@@ -12,7 +12,7 @@ export const define = {
 
 module.exports = {
     host: process.env.DATABASE_HOST || "localhost",
-    database: process.env.DATABASE_NAME || "localdb",
+    database: process.env.DATABASE_NAME || "backendutnreact",
     username: process.env.DATABASE_USER || "root",
     password: process.env.DATABASE_PASSWORD || "",
     port: process.env.DATABASE_PORT || 3306,
