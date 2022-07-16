@@ -5,7 +5,7 @@ const app = express();
 import path from "path";
 import { sequalizeConection } from "./db/conection";
 //routers
-import { productsRouter, cartRouter } from "./features";
+import { productsRouter, cartRouter, sessionRouter } from "./features";
 
 sequalizeConection();
 // swagger
@@ -31,6 +31,7 @@ app.use(express.json());
 app.use("/", routes);
 app.use("/products", productsRouter);
 app.use("/cart", cartRouter);
+app.use("/session", sessionRouter);
 
 app.use(
   "/api-doc",

@@ -1,5 +1,6 @@
 import express from "express";
-import { getCart } from "./controllers";
+import { auth } from "../../middlewares";
+import { addToCart, getCart, removeToCart } from "./controllers";
 export const cartRouter = express.Router();
 
 /**
@@ -35,5 +36,7 @@ export const cartRouter = express.Router();
  *      200:
  *        description: pinged correctly!!
  */
- cartRouter.get("/cart", getCart);
+cartRouter.get("/cart", getCart);
+cartRouter.put("/addNew", auth, addToCart);
+cartRouter.delete("/remove", auth, removeToCart);
 

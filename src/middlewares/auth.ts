@@ -1,20 +1,37 @@
 import jwt from "jsonwebtoken";
+import { Carts, Users } from "../models";
 import { SECRET } from "./../config/config";
 
-const auth = (req, res, next) => {
+export const auth = (req, res, next) => {
   try {
     if (req.headers.authorization) {
-      // Comprueba la validez de este token
       let token = req.headers.authorization.split(" ")[1];
-      jwt.verify(token, SECRET, (err, decoded) => {
+      jwt.verify(token, SECRET, async (err, decoded) => {
         if (!err) {
-          req.userId = decoded.userId;
-          return next();
+          const idUser = decoded.idUser;
+          try {
+            const userData = await Users.findOne({
+              include: [
+                {
+                  model: Carts,
+                },
+              ],
+              where: [{ id: idUser }],
+            });
+            if (userData) {
+              req.userData = userData.toJSON();
+              return next();
+            }
+            return res.status(400).send({ msg: "user problem" });
+          } catch (err) {
+            return res.status(400).send({ msg: "Bad Token" });
+          }
         }
         return res.status(400).send({ msg: "Error en el token" });
       });
+    } else {
+      return res.status(400).send({ msg: "No token" });
     }
-    return res.status(400).send({ msg: "Error en el token" });
   } catch (err) {
     res
       .status(500)
