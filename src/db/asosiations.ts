@@ -8,8 +8,14 @@ import {
   Users,
 } from "./../models";
 import "./../models";
-Categories.belongsToMany(ProductsTypes, {through: "ProductsTypesCategories", foreignKey: "idCategory"});
-ProductsTypes.belongsToMany(Categories, {through: "ProductsTypesCategories", foreignKey: "idProductType"});
+Categories.belongsToMany(ProductsTypes, {
+  through: "ProductsTypesCategories",
+  foreignKey: "idCategory",
+});
+ProductsTypes.belongsToMany(Categories, {
+  through: "ProductsTypesCategories",
+  foreignKey: "idProductType",
+});
 
 Shops.hasMany(ProductsTypes, {
   foreignKey: "idShop",
@@ -21,8 +27,14 @@ ProductsTypes.belongsTo(Shops, {
   targetKey: "id",
 });
 
-ProductsTypes.belongsToMany(Carts, {through: "CartsProductsTypes", foreignKey: "idProductType"});
-Carts.belongsToMany(ProductsTypes, {through: "CartsProductsTypes", foreignKey: "idCart"});
+ProductsTypes.belongsToMany(Carts, {
+  through: "CartsProductsTypes",
+  foreignKey: "idProductType",
+});
+Carts.belongsToMany(ProductsTypes, {
+  through: "CartsProductsTypes",
+  foreignKey: "idCart",
+});
 
 ProductsTypes.hasMany(Products, {
   foreignKey: "idProductType",
@@ -34,8 +46,14 @@ Products.belongsTo(ProductsTypes, {
   targetKey: "id",
 });
 
-Sells.belongsToMany(Products, {through: "SellsProducts", foreignKey: "idSell"});
-Products.belongsToMany(Sells, {through: "SellsProducts", foreignKey: "idProduct"});
+Sells.belongsToMany(Products, {
+  through: "SellsProducts",
+  foreignKey: "idSell",
+});
+Products.belongsToMany(Sells, {
+  through: "SellsProducts",
+  foreignKey: "idProduct",
+});
 
 Users.hasMany(Sells, {
   foreignKey: "idUser",
@@ -52,8 +70,4 @@ Users.hasOne(Carts, {
   sourceKey: "id",
 });
 
-Carts.hasOne(Users, {
-  foreignKey: "idCart",
-  sourceKey: "id",
-});
-
+Carts.belongsTo(Users);

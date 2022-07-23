@@ -20,6 +20,7 @@ export const auth = (req, res, next) => {
             });
             if (userData) {
               req.userData = userData.toJSON();
+              console.log(req.userData);
               return next();
             }
             return res.status(400).send({ msg: "user problem" });

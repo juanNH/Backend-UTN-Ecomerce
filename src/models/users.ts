@@ -25,10 +25,15 @@ export const Users = sequelize.define(
     },
     userName: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    money: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },

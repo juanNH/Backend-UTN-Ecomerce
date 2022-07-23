@@ -1,13 +1,5 @@
 import { Sequelize } from "sequelize";
-import {
-  host,
-  database,
-  password,
-  port,
-  username,
-  dialect,
-} from "./config";
-
+import { host, database, password, port, username, dialect } from "./config";
 
 export const sequelize = new Sequelize({
   host: host,
@@ -17,14 +9,14 @@ export const sequelize = new Sequelize({
   database: database,
   dialect: dialect,
 });
-import './asosiations.ts';
+import "./asosiations.ts";
 
 export const sequalizeConection = async () => {
   try {
     await sequelize.authenticate();
-   // await sequelize.sync({force:true});
+    //await sequelize.sync({force:true});
     console.log("Connection has been established successfully.");
-  } catch (error) { 
+  } catch (error) {
     console.error("Unable to connect to the database:", error);
   }
 };

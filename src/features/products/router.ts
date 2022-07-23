@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllProducts, getProductByCategory } from "./controllers";
+import { getAllProducts, getProductByCategory, getProductByCode } from "./controllers";
 export const productsRouter = express.Router();
 
 /**
@@ -38,4 +38,5 @@ export const productsRouter = express.Router();
 productsRouter.get("/allProducts", getAllProducts);
 
 productsRouter.get("/byCategory", getProductByCategory);
+productsRouter.get("/product", getProductByCode);
 

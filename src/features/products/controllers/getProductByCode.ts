@@ -1,8 +1,12 @@
-import { Categories, ProductsTypes } from "../../../models";
+import { Categories, ProductsTypes, Shops } from "../../../models";
 
-export const getAllProducts = async (_req, res) => {
+export const getProductByCode = async (_req, res) => {
   const { count, rows } = await ProductsTypes.findAndCountAll({
     include: [
+      {
+        model: Shops,
+        required: true,
+      },
       {
         model: Categories,
         required: true,

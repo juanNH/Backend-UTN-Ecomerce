@@ -1,5 +1,6 @@
 import express from "express";
-import { login } from "./controllers/login";
+import { auth } from "../../middlewares";
+import { getUserInfo, logIn, signIn } from "./controllers/";
 export const sessionRouter = express.Router();
 
 /**
@@ -35,6 +36,7 @@ export const sessionRouter = express.Router();
  *      200:
  *        description: pinged correctly!!
  */
-sessionRouter.post("/login", login);
+sessionRouter.post("/login", logIn);
 
-
+sessionRouter.post("/signIn", signIn);
+sessionRouter.get("/userInfo", auth ,getUserInfo);

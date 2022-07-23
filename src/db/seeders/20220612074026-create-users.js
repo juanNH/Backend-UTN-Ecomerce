@@ -13,6 +13,7 @@ module.exports = {
         password: '123456',
         createdAt: dateTime(),
         updatedAt: dateTime(),
+        money: 6000,
       },
     ];
     await queryInterface.bulkInsert('Users', users, {});
