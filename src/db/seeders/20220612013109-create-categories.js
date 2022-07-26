@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         code: randomCode(),
-        name: 'gaming',
+        name: 'Gaming',
         createdAt: dateTime(),
         updatedAt: dateTime(),
       },

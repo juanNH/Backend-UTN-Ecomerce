@@ -14,7 +14,7 @@ module.exports = {
         updatedAt: dateTime(),
       },
       {
-        code: 100,
+        code: randomCode(),
         name: 'Tienda falsa2',
         address: 'Calle falsa 124',
         createdAt: dateTime(),

@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import { PORT } from "./config/config";
 import routes from "./routes";
 const app = express();
@@ -27,6 +28,7 @@ const swaggerSpec = {
   apis: [`${path.join(__dirname, "./routes/*.ts")}`],
 };
 // middlewares
+app.use(cors());
 app.use(express.json());
 app.use("/", routes);
 app.use("/products", productsRouter);
