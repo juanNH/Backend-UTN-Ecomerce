@@ -12,6 +12,7 @@ export const getProductByCategory = async (req, res) => {
             where: [{ id: categoryId }],
           },
         ],
+        limit: 10,
       });
       return res.status(200).send(products);
     } catch (err) {

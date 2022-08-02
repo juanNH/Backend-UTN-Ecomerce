@@ -21,7 +21,25 @@ module.exports = {
         idProductType: 1,
         createdAt: dateTime(),
         updatedAt: dateTime(),
-      }
+      },
+      {
+        barCode: randomCode(),
+        idProductType: 3,
+        createdAt: dateTime(),
+        updatedAt: dateTime(),
+      },
+      {
+        barCode: randomCode(),
+        idProductType: 4,
+        createdAt: dateTime(),
+        updatedAt: dateTime(),
+      },
+      {
+        barCode: randomCode(),
+        idProductType: 5,
+        createdAt: dateTime(),
+        updatedAt: dateTime(),
+      },
     ];
     await queryInterface.bulkInsert('Products', products, {});
   },

@@ -36,7 +36,7 @@ export const cartRouter = express.Router();
  *      200:
  *        description: pinged correctly!!
  */
-cartRouter.get("/cart", getCart);
+cartRouter.get("/cart",auth, getCart);
 cartRouter.put("/addNew", auth, addToCart);
 cartRouter.delete("/remove", auth, removeToCart);
 
