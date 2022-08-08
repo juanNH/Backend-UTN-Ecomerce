@@ -1,6 +1,6 @@
 import express from "express";
 import { auth } from "../../middlewares";
-import { addToCart, getCart, removeToCart } from "./controllers";
+import { addToCart, getCart, payCart, removeToCart } from "./controllers";
 export const cartRouter = express.Router();
 
 /**
@@ -37,6 +37,8 @@ export const cartRouter = express.Router();
  *        description: pinged correctly!!
  */
 cartRouter.get("/cart",auth, getCart);
-cartRouter.put("/addNew", auth, addToCart);
+cartRouter.post("/addNew", auth, addToCart);
 cartRouter.delete("/remove", auth, removeToCart);
+cartRouter.post("/pay", auth, payCart);
+
 

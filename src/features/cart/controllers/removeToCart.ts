@@ -4,6 +4,7 @@ export const removeToCart = async (req, res) => {
   try {
     const dataUser = req.userData;
     const { productTypeId } = req.body;
+
     await CartsProductsTypes.destroy({
       where: [
         {

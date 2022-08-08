@@ -1,6 +1,19 @@
+import { Op } from "sequelize";
 import { Categories, ProductsTypes } from "../../../models";
 
-export const getAllProducts = async (_req, res) => {
+export const getAllProducts = async (req, res) => {
+  const { productName } = req.query;
+  if (!productName) {
+    const { count, rows } = await ProductsTypes.findAndCountAll({
+      include: [
+        {
+          model: Categories,
+          required: true,
+        },
+      ],
+    });
+    return res.status(200).send({ count, rows });
+  }
   const { count, rows } = await ProductsTypes.findAndCountAll({
     include: [
       {
@@ -8,6 +21,13 @@ export const getAllProducts = async (_req, res) => {
         required: true,
       },
     ],
+    where: [
+      {
+        name: {
+          [Op.like]: `%${productName}%`,
+        },
+      },
+    ],
   });
-  res.status(200).send({ count, rows });
+  return res.status(200).send({ count, rows });
 };

@@ -17,7 +17,7 @@ export const signIn = async (req, res) => {
             password: hash,
             createdAt: dateTime(),
             updatedAt: dateTime(),
-            money: 6000,
+            money: 1000000,
           });
           const newId = newUser.toJSON()["id"];
           console.log(newId);

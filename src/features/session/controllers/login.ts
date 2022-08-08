@@ -21,8 +21,14 @@ export const logIn = async (req, res) => {
       const token = jwt.sign(dataJWT, SECRET, { expiresIn: EXPIRES });
 
       return res.header("auth-token", token).json({
-        error: null,
-        data: { token },
+        error: false,
+        data: {
+          token,
+          user: {
+            name: resultUser["name"],
+            userName: resultUser["userName"],
+          },
+        },
       });
     }
     return res.status(405).send({ msg: "notCorrect password or username" });
